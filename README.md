@@ -2,35 +2,45 @@
 
 **A living digital megacity inside a giant AI processor.**
 
-Cinematic drone flight through OpenAI District, Robotics Harbor, Quantum Heights, and the NVIDIA Monument. CPU towers as skyscrapers. Holographic billboards that *are* the news.
+Cinematic drone flight through OpenAI District, Robotics Harbor, Quantum Heights, and the NVIDIA Monument.
 
-## Live
+## Repository
 
-**[Launch THE AI CORE →](https://therealsmallsai.github.io/ai-core-megacity/)**
+https://github.com/TherealsmallsAi/ai-core-megacity
+
+## Go live in 30 seconds
+
+1. [Upload `player.html`](https://github.com/TherealsmallsAi/ai-core-megacity/upload/main) — use your local file:
+   - `ai-core-megacity/dist/index.html` **or**
+   - `ai-core-megacity/public/standalone.html`
+   - Rename to **`player.html`** on upload
+2. **Settings → Pages → Source: GitHub Actions** (workflow is already in the repo)
+3. Open: **https://therealsmallsai.github.io/ai-core-megacity/**
+
+Or from terminal:
+
+```bash
+cd ai-core-megacity
+cp public/standalone.html player.html
+git add player.html && git commit -m "Ship player" && git push
+```
 
 ## Run locally
 
-### Instant (no install)
-Open `index.html` in any modern browser.
-
-### Full app (Vite + React Three Fiber)
 ```bash
-npm install
-npm run dev
+# Instant
+open public/standalone.html
+
+# Full R3F app
+npm install && npm run dev
 ```
 
 ## Architecture
 
-Three engines:
+| Engine | Role |
+|--------|------|
+| **News** | Live RSS + keyword classifier + curated fallback |
+| **Experience** | Stories → holographic billboards + district HUD |
+| **Render** | R3F, InstancedMesh city, bloom, cinematic drone path |
 
-1. **News** — Live RSS + classifier + curated fallback
-2. **Experience** — Stories → spatial billboards + HUD
-3. **Render** — Three.js / R3F, InstancedMesh city, bloom, cinematic camera
-
-## Brand
-
-Within five seconds you should feel: this is not a news website — it is a place made of AI news. **Small Talk AI News / THE AI CORE.**
-
----
-
-Built for [SmallsAi](https://github.com/TherealsmallsAi)
+**Small Talk AI News / THE AI CORE**
