@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>THE AI CORE — Small Talk AI News</title>
-  <meta http-equiv="refresh" content="0;url=./player.html" />
-  <style>body{background:#000;color:#00e5ff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
-  a{color:#00e5ff}</style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>THE AI CORE — Small Talk AI News</title>
+<style>
+html,body{margin:0;height:100%;background:#000;color:#00e5ff;font-family:system-ui,sans-serif}
+#boot{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.logo{font-weight:800;letter-spacing:8px;font-size:28px;background:linear-gradient(90deg,#00f0ff,#7b5cff,#00f0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-size:12px;letter-spacing:4px;color:#4a7a8a;text-transform:uppercase}
+</style>
 </head>
 <body>
-  <p>Loading <a href="./player.html">THE AI CORE</a>…</p>
+<div id="boot">
+  <div class="logo">THE AI CORE</div>
+  <div class="sub">Small Talk AI News · Loading megacity…</div>
+</div>
+<script>
+Promise.all([0,1,2,3].map(i => fetch('player.b64.' + i).then(r => r.text())))
+  .then(parts => {
+    document.open();
+    document.write(atob(parts.join('')));
+    document.close();
+  })
+  .catch(err => {
+    document.getElementById('boot').innerHTML =
+      '<div class="logo">THE AI CORE</div><div class="sub">Load error — see GitHub repo</div>';
+    console.error(err);
+  });
+</script>
 </body>
 </html>
