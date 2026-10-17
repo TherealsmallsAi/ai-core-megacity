@@ -1,46 +1,32 @@
 # THE AI CORE — Small Talk AI News
 
-**A living digital megacity inside a giant AI processor.**
+## Current runnable experience
 
-Cinematic drone flight through OpenAI District, Robotics Harbor, Quantum Heights, and the NVIDIA Monument.
+The root page is a self-contained, responsive Emerald Noir visual experience. It has no model/API dependency and labels the live news pipeline as disconnected. It does not fetch, verify, or publish news.
 
-## Repository
+## Run locally (Windows PowerShell)
 
-https://github.com/TherealsmallsAi/ai-core-megacity
+Requires Node.js 20+.
 
-## Go live in 30 seconds
-
-1. [Upload `player.html`](https://github.com/TherealsmallsAi/ai-core-megacity/upload/main) — use your local file:
-   - `ai-core-megacity/dist/index.html` **or**
-   - `ai-core-megacity/public/standalone.html`
-   - Rename to **`player.html`** on upload
-2. **Settings → Pages → Source: GitHub Actions** (workflow is already in the repo)
-3. Open: **https://therealsmallsai.github.io/ai-core-megacity/**
-
-Or from terminal:
-
-```bash
-cd ai-core-megacity
-cp public/standalone.html player.html
-git add player.html && git commit -m "Ship player" && git push
+```powershell
+npm run dev
 ```
 
-## Run locally
+Open http://127.0.0.1:4173.
 
-```bash
-# Instant
-open public/standalone.html
+Build and preview the static site:
 
-# Full R3F app
-npm install && npm run dev
+```powershell
+npm run build
+npm run preview
 ```
 
-## Architecture
+## Important implementation status
 
-| Engine | Role |
-|--------|------|
-| **News** | Live RSS + keyword classifier + curated fallback |
-| **Experience** | Stories → holographic billboards + district HUD |
-| **Render** | R3F, InstancedMesh city, bloom, cinematic drone path |
+The previous Base64 loader depended on player chunks that were not present. That startup path has been removed. The older React/Three.js files under `src/` remain a non-runnable experiment: they have missing imports and are not part of the static build. They must be restored as a separate, tested application before claiming the 3D megacity or live-news features are implemented.
 
-**Small Talk AI News / THE AI CORE**
+GitHub Pages now deploys only the validated `dist/` output, not the entire repository. Pull requests run the static build; deployment runs only after a change reaches `main`.
+
+## Next phase
+
+Reconnect a live feed only after implementing source attribution, evidence links, independent claim verification, timestamps, regression tests, and human approval before public publishing.
