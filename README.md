@@ -1,46 +1,21 @@
 # THE AI CORE — Small Talk AI News
 
-**A living digital megacity inside a giant AI processor.**
+**A cinematic front door for Small Talk AI News.**
 
-Cinematic drone flight through OpenAI District, Robotics Harbor, Quantum Heights, and the NVIDIA Monument.
+## Current state
 
-## Repository
+The root `index.html` is a self-contained, responsive visual experience. It has no runtime dependency on external JavaScript, compressed player chunks, or a model/API key. It intentionally labels the live news pipeline as disconnected; the visual shell is not a live feed and does not claim to retrieve or verify current stories.
 
-https://github.com/TherealsmallsAi/ai-core-megacity
-
-## Go live in 30 seconds
-
-1. [Upload `player.html`](https://github.com/TherealsmallsAi/ai-core-megacity/upload/main) — use your local file:
-   - `ai-core-megacity/dist/index.html` **or**
-   - `ai-core-megacity/public/standalone.html`
-   - Rename to **`player.html`** on upload
-2. **Settings → Pages → Source: GitHub Actions** (workflow is already in the repo)
-3. Open: **https://therealsmallsai.github.io/ai-core-megacity/**
-
-Or from terminal:
-
-```bash
-cd ai-core-megacity
-cp public/standalone.html player.html
-git add player.html && git commit -m "Ship player" && git push
-```
+The former root page attempted to concatenate `player.b64.0` through `player.b64.3` and write the decoded result into the document. Only `player.b64.0` was present, and `player.html` was a placeholder, so that startup path could not complete.
 
 ## Run locally
 
-```bash
-# Instant
-open public/standalone.html
+Open `index.html` in a browser, or serve the repository root with any static HTTP server. No package installation is required to view the current static experience.
 
-# Full R3F app
-npm install && npm run dev
-```
+## Next engineering phase
 
-## Architecture
+Restore the full 3D application as a separate, buildable implementation. Before reconnecting a live feed, add a source registry, attribution and timestamps, independent claim verification, regression tests, and a human approval gate for publishing. Do not represent the current static visual as a functioning AI news pipeline.
 
-| Engine | Role |
-|--------|------|
-| **News** | Live RSS + keyword classifier + curated fallback |
-| **Experience** | Stories → holographic billboards + district HUD |
-| **Render** | R3F, InstancedMesh city, bloom, cinematic drone path |
+## Visual identity
 
-**Small Talk AI News / THE AI CORE**
+Emerald Noir: obsidian black, emerald green, neon cyan, and sun amber. No pink or magenta brand accents.
